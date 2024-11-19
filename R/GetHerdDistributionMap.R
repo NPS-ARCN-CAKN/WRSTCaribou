@@ -11,6 +11,7 @@
 GetHerdDistributionMap = function(SurveyName){
 
   # Load libraries
+  library(odbc)
   library(sf)
   library(tidyverse)
 
