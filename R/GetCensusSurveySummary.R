@@ -10,7 +10,7 @@
 #' head(data)
 #' @export
 GetCensusSurveySummary = function(SurveyName){
-
+  library(odbc)
   Connection = GetDatabaseConnection()
 
 
