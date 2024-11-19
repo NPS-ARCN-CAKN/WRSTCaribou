@@ -9,10 +9,10 @@
 #' data = GetCensusSurveySummary('2024-06-26 Mentasta Caribou Population Survey')
 #' head(data)
 #' @export
-GetCensusSurveySummary = function(SurveyName){
-  library(odbc)
-  Connection = GetDatabaseConnection()
+#' @import odbc
+GetCensusSurveySummary = function(SurveyName,SqlServer,Database){
 
+  Connection = GetDatabaseConnection(SqlServer,Database)
 
   Sql = paste("SELECT [Survey name], Herd, [Survey type], [Type of survey], Timing, Cow, Calf, [Small bull], [Medium bull], [Large bull], Bull, BullsWereCategorized, Adult, Caribou, Unknown, [Calf, male], [Calf, female], [Calf, unclassified], Yearling,
  GroupSize_Mean, [Minimum group size], [Maximum group size], [Pct. calf], [Pct. cow], [Pct. small bull], [Pct. medium bull], [Pct. large bull], [Pct. small bull (of total bulls)], [Pct. medium bull (of total bulls)],
@@ -23,8 +23,10 @@ GetCensusSurveySummary = function(SurveyName){
 FROM  Summary_Census
 WHERE [Survey name] = '",SurveyName,"'",sep="")
 
-  return(dbGetQuery(Connection,Sql))
-
-
+  return(odbc::dbGetQuery(Connection,Sql))
 
 }
+
+# Test
+# GetCensusSurveySummary('2022 DENA Caribou Composition Survey','inpyugamsvm01\\nuna','WRST_Caribou')
+
