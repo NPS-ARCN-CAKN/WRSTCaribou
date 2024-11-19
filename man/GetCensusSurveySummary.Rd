@@ -4,7 +4,7 @@
 \alias{GetCensusSurveySummary}
 \title{GetCensusSurveySummary()}
 \usage{
-GetCensusSurveySummary(SurveyName)
+GetCensusSurveySummary(SurveyName, SqlServer, Database)
 }
 \value{
 Data frame.

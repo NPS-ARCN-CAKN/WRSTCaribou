@@ -4,7 +4,7 @@
 \alias{GetHerdDistributionMap}
 \title{GetHerdDistributionMap()}
 \usage{
-GetHerdDistributionMap(SurveyName)
+GetHerdDistributionMap(SurveyName, SqlServer, Database)
 }
 \value{
 Plot
@@ -16,5 +16,5 @@ Returns a map of animal sightings during a survey.
 # Get a plot of the '2024-06-26 Mentasta Caribou Population Survey'
 
 # Execute the query into a data frame
-GetHerdDistributionMap('2024-06-26 Mentasta Caribou Population Survey')
+WRSTCaribou::GetHerdDistributionMap('2024-06-26 Mentasta Caribou Population Survey','inpyugamsvm01\\\\nuna','WRST_Caribou')
 }

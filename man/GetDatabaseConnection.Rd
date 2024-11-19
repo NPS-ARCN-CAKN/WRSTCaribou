@@ -4,7 +4,7 @@
 \alias{GetDatabaseConnection}
 \title{GetDatabaseConnection()}
 \usage{
-GetDatabaseConnection()
+GetDatabaseConnection(SqlServer, Database)
 }
 \value{
 An odbc database connection object.

@@ -3,3 +3,7 @@
 export(GetCensusSurveySummary)
 export(GetDatabaseConnection)
 export(GetHerdDistributionMap)
+import(DBI)
+import(odbc)
+import(sf)
+import(tidyverse)
