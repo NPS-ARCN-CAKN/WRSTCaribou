@@ -1,0 +1,5 @@
+unlink("NAMESPACE") # Delete existing NAMESPACE FILE
+roxygen2::roxygenize() # Update the documentation using the tags in each function, devtools::document() does the same thing
+devtools::document() # Builds documentation based on the roxygen tags
+devtools::build() # Build the package
+# Go to the Build tab and click Install

@@ -1,0 +1,14 @@
+Package: WRSTCaribou
+Type: Package
+Title: Data Management Functions For Caribou Monitoring In WRST
+Version: 0.1.0
+Author: Scott D. Miller
+Maintainer: Scott D. Miller <Scott_Miller@nps.gov>
+Description: WRST caribou database functions.
+    Functions for piping data into R analyses.
+License: U.S. Public Works. Public Domain.
+Encoding: UTF-8
+LazyData: true
+Imports: 
+  tidyverse, ggplot2, odbc
+RoxygenNote: 7.3.1
