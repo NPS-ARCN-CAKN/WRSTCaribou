@@ -1,32 +1,34 @@
 #' GetDatabaseConnection()
 #'
-#' This function returns an odbc database connection to the AK_ShallowLakes database. This function is mostly used internally by other functions in the NPSShallowLakes package, but you can use it as part of your own database queries.
+#' This function returns database connection
 #' @return An odbc database connection object.
 #' @examples
 #' # Get a connection to the WRST_Caribou database
-#' Connection = GetDatabaseConnection()
-#' # Execute the query into a data frame
-#' data = odbc::dbGetQuery(Connection,'SELECT Top 3 * FROM Surveys')
-#' head(data)
+#' Connection = WRSTCaribou::GetDatabaseConnection(SqlServer,Database)
 #' @export
 #' @import odbc
 #' @import DBI
 
-GetDatabaseConnection <- function(SqlServer,Database) {
+GetDatabaseConnection <- function() {
+
+  # Database parameters
+  SqlServer = "inpyugamsvm01\\nuna"
+  Database = "WRST_Caribou"
 
   # Load the ODBC library
   library(odbc)
   library(DBI)
 
-  # Try to open a database connection to the AK_ShallowLakes database
-  Connection <- tryCatch({
-
-    # Get a database connection
-    #dbConnect(odbc(),Driver = "Sql Server",Server = "inpyugamsvm01\\nuna",Database = "WRST_Caribou")
+  # Try to open a database connection to the database
+  tryCatch({
 
     # Define the connection string
     ConnectionString = paste("Driver={SQL Server};Server=",SqlServer,";Database=",Database,";Trusted_Connection=Yes;",sep="")
+
+    # Get a database connection
     Connection = dbConnect(odbc::odbc(), .connection_string = ConnectionString)
+
+    # Return the database connection
     return(Connection)
 
   }, warning = function(w) {
@@ -41,12 +43,6 @@ GetDatabaseConnection <- function(SqlServer,Database) {
     message("Error: ", conditionMessage(e))
     return(NA)
 
-  }, finally = {
-
-    # Finally
-    # message("Cleanup, if needed")
-
   })
 
-  return(Connection)
 }
