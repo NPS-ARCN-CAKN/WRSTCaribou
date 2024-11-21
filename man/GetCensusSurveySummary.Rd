@@ -2,20 +2,20 @@
 % Please edit documentation in R/GetCensusSurveySummary.R
 \name{GetCensusSurveySummary}
 \alias{GetCensusSurveySummary}
-\title{GetCensusSurveySummary()}
+\title{GetCensusSurveySummary()
+Summarizes the animal counts and related statistics for a WRST caribou survey specified by SurveyName.}
 \usage{
-GetCensusSurveySummary(SurveyName, SqlServer, Database)
+GetCensusSurveySummary(SurveyName)
 }
 \value{
 Data frame.
 }
 \description{
-Summarizes the animal counts and related information regarding the survey titled SurveyName.
+GetCensusSurveySummary()
+Summarizes the animal counts and related statistics for a WRST caribou survey specified by SurveyName.
 }
 \examples{
-# Summarize the survey titled '2024-06-26 Mentasta Caribou Population Survey'
-
-# Execute the query into a data frame
-data = GetCensusSurveySummary('2024-06-26 Mentasta Caribou Population Survey')
+# Get a summary of results for a caribou survey.
+data = WRSTCaribou::GetCensusSurveySummary('2024-06-26 Mentasta Caribou Population Survey')
 head(data)
 }
